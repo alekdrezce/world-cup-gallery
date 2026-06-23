@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="250mm" height="251.166mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 24989.46 25106.04"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil0 {fill:#272932}
+   ]]>
+  </style>
+    <clipPath id="id0">
+     <rect x="6652.66" y="1155.25" width="11709.67" height="23950.78"/>
+    </clipPath>
+    <clipPath id="id1">
+     <rect x="-1159.57" y="-6580.3" width="27317.07" height="39364.86"/>
+    </clipPath>
+ </defs>
+ <g id="Capa_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <rect class="fil0" width="24989.46" height="24989.46"/>
+  <g id="_2521437996768">
+   <g style="clip-path:url(#id0)">
+    <image x="6652.66" y="1155.25" width="11709.67" height="23950.78" xlink:href="fondo_Images\fondo_ImgID1.png"/>
+   </g>
+  </g>
+  <g id="_2521437934560">
+   <g style="clip-path:url(#id1)">
+    <image x="-1159.57" y="-6580.3" width="27317.07" height="39364.86" xlink:href="fondo_Images\fondo_ImgID2.png"/>
+   </g>
+  </g>
+ </g>
+</svg>

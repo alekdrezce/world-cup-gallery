@@ -1,0 +1,126 @@
+/* Reset básico para asegurar que se vea igual en todos los navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    /* Cargamos el fondo.svg desde la carpeta assets */
+    background-image: url('assets/fondo.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Evita que el fondo se mueva al scrollear */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    color: #333; 
+}
+
+/* --- LOGO PRINCIPAL --- */
+header {
+    margin-bottom: 30px;
+}
+
+.logo-principal {
+    width: 100%;
+    max-width: 350px; /* Tamaño máximo del logo horizontal */
+    height: auto;
+    display: block;
+}
+
+/* --- PANEL DE BOTONES (Mundiales) --- */
+.botonera-mundiales {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los botones salten a una segunda fila */
+    justify-content: center;
+    gap: 15px;
+    max-width: 800px; /* Limita el ancho para forzar visualmente las filas */
+    margin-bottom: 40px;
+}
+
+.btn-mundial {
+    width: 70px;
+    height: 70px; /* Botón perfectamente cuadrado */
+    border-radius: 15px; /* Puntas redondeadas */
+    border: 2px solid transparent;
+    background-color: #fff;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombrita suave */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.btn-mundial:hover {
+    transform: translateY(-5px); /* Efectito de levante al pasar el mouse */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.btn-mundial img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Evita que el logo del mundial se deforme */
+}
+
+/* --- VISOR 3D --- */
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.visor-container {
+    width: 100%;
+    max-width: 600px;
+    /* Un fondo semitransparente con efecto vidrio para destacar la camiseta sobre el fondo.svg */
+    background: rgba(255, 255, 255, 0.7); 
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    margin-bottom: 25px;
+    backdrop-filter: blur(10px); 
+}
+
+model-viewer {
+    width: 100%;
+    height: 450px; /* Altura generosa para que el zoom y la rotación sean cómodos */
+    background-color: transparent;
+    outline: none;
+}
+
+/* --- FICHA TÉCNICA --- */
+.ficha-tecnica {
+    width: 100%;
+    max-width: 600px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.ficha-tecnica h2 {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    color: #1a1a1a;
+}
+
+.ficha-tecnica p {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #4a4a4a;
+}
+
+.ficha-tecnica .detalles {
+    margin-top: 15px;
+    font-style: italic;
+    color: #666;
+    line-height: 1.5;
+}

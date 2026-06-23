@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Cup Gallery</title>
+    
+    <link rel="stylesheet" href="styles.css">
+    
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+</head>
+<body>
+    <header>
+        <img src="assets/logo.svg" alt="World Cup Gallery" class="logo-principal">
+    </header>
+
+    <nav class="botonera-mundiales" id="botonera">
+        <button class="btn-mundial" data-year="1930">
+            <img src="assets/logos/1930.png" alt="Mundial 1930">
+        </button>
+        <button class="btn-mundial" data-year="1950">
+            <img src="assets/logos/1950.png" alt="Mundial 1950">
+        </button>
+        <button class="btn-mundial" data-year="1986">
+            <img src="assets/logos/1986.png" alt="Mundial 1986">
+        </button>
+    </nav>
+
+    <main>
+        <div class="visor-container">
+            <model-viewer 
+                id="visor-3d" 
+                src="assets/camisetas/1930.glb" 
+                camera-controls 
+                auto-rotate 
+                shadow-intensity="1"
+                environment-image="neutral">
+            </model-viewer>
+        </div>
+
+        <section class="ficha-tecnica" id="ficha">
+            <h2 id="ficha-mundial">Uruguay 1930</h2>
+            <p><strong>Campeón:</strong> <span id="ficha-campeon">Uruguay</span></p>
+            <p><strong>Marca:</strong> <span id="ficha-marca">Sin marca (confección local)</span></p>
+            <p class="detalles" id="ficha-detalles">Camiseta de punto de algodón pesado, con cuello acordonado clásico.</p>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

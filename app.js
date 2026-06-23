@@ -1,21 +1,28 @@
 // Base de datos de los mundiales (acá podés ir agregando todos los demás)
+// Base de datos completa de los 22 mundiales
 const mundiales = {
-    "1930": {
-        pais: "Uruguay",
-        marca: "",
-        detalles: ""
-    },
-    "1950": {
-        pais: "Uruguay",
-        marca: "",
-        detalles: ""
-    },
-    "1986": {
-        pais: "Argentina",
-        marca: "",
-        detalles: ""
-    }
-    // La estructura está lista para ir sumando los demás mundiales
+    "1930": { pais: "Uruguay", marca: "", detalles: "" },
+    "1934": { pais: "Italia", marca: "", detalles: "" },
+    "1938": { pais: "Italia", marca: "", detalles: "" },
+    "1950": { pais: "Uruguay", marca: "", detalles: "" },
+    "1954": { pais: "Alemania", marca: "", detalles: "" },
+    "1958": { pais: "Brasil", marca: "", detalles: "" },
+    "1962": { pais: "Brasil", marca: "", detalles: "" },
+    "1966": { pais: "Inglaterra", marca: "", detalles: "" },
+    "1970": { pais: "Brasil", marca: "", detalles: "" },
+    "1974": { pais: "Alemania", marca: "", detalles: "" },
+    "1978": { pais: "Argentina", marca: "", detalles: "" },
+    "1982": { pais: "Italia", marca: "", detalles: "" },
+    "1986": { pais: "Argentina", marca: "", detalles: "" },
+    "1990": { pais: "Alemania", marca: "", detalles: "" },
+    "1994": { pais: "Brasil", marca: "", detalles: "" },
+    "1998": { pais: "Francia", marca: "", detalles: "" },
+    "2002": { pais: "Brasil", marca: "", detalles: "" },
+    "2006": { pais: "Italia", marca: "", detalles: "" },
+    "2010": { pais: "Espana", marca: "", detalles: "" }, // Sin la "ñ" para evitar problemas si usás esto en nombres de archivo
+    "2014": { pais: "Alemania", marca: "", detalles: "" },
+    "2018": { pais: "Francia", marca: "", detalles: "" },
+    "2022": { pais: "Argentina", marca: "", detalles: "" }
 };
 
 // Esperamos a que todo el HTML cargue antes de ejecutar el script

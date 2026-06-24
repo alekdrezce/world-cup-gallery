@@ -1,33 +1,120 @@
-// Base de datos de los mundiales (acá podés ir agregando todos los demás)
 // Base de datos completa de los 22 mundiales
 const mundiales = {
-    "1930": { pais: "Uruguay", marca: "", detalles: "" },
-    "1934": { pais: "Italia", marca: "", detalles: "" },
-    "1938": { pais: "Italia", marca: "", detalles: "" },
-    "1950": { pais: "Uruguay", marca: "", detalles: "" },
-    "1954": { pais: "Alemania", marca: "", detalles: "" },
-    "1958": { pais: "Brasil", marca: "", detalles: "" },
-    "1962": { pais: "Brasil", marca: "", detalles: "" },
-    "1966": { pais: "Inglaterra", marca: "", detalles: "" },
-    "1970": { pais: "Brasil", marca: "", detalles: "" },
-    "1974": { pais: "Alemania", marca: "", detalles: "" },
-    "1978": { pais: "Argentina", marca: "", detalles: "" },
-    "1982": { pais: "Italia", marca: "", detalles: "" },
-    "1986": { pais: "Argentina", marca: "", detalles: "" },
-    "1990": { pais: "Alemania", marca: "", detalles: "" },
-    "1994": { pais: "Brasil", marca: "", detalles: "" },
-    "1998": { pais: "Francia", marca: "", detalles: "" },
-    "2002": { pais: "Brasil", marca: "", detalles: "" },
-    "2006": { pais: "Italia", marca: "", detalles: "" },
-    "2010": { pais: "Espana", marca: "", detalles: "" }, // Sin la "ñ" para evitar problemas si usás esto en nombres de archivo
-    "2014": { pais: "Alemania", marca: "", detalles: "" },
-    "2018": { pais: "Francia", marca: "", detalles: "" },
-    "2022": { pais: "Argentina", marca: "", detalles: "" }
+    "1930": { 
+        pais: "Uruguay", 
+        marca: "-", 
+        detalles: "Camiseta de punto de algodón pesado, con cuello acordonado clásico." 
+    },
+    "1934": { 
+        pais: "Italia", 
+        marca: "-", 
+        detalles: "Camiseta de lana ligera azul azzurra, escudo fasces bordado y cuello redondo." 
+    },
+    "1938": { 
+        pais: "Italia", 
+        marca: "-", 
+        detalles: "Camiseta de algodón peinado azul, corte entallado y escudo de la Casa de Saboya." 
+    },
+    "1950": { 
+        pais: "Uruguay", 
+        marca: "-", 
+        detalles: "Camiseta de algodón entallado celeste, cuello en \"V\" blanco y puños elásticos." 
+    },
+    "1954": { 
+        pais: "Alemania", 
+        marca: "-", 
+        detalles: "Camiseta de algodón grueso blanco, cuello negro texturizado y ajuste acordonado." 
+    },
+    "1958": { 
+        pais: "Brasil", 
+        marca: "-", 
+        detalles: "Camiseta de punto azul cortada a mano con escudo cosido artesanalmente." 
+    },
+    "1962": { 
+        pais: "Brasil", 
+        marca: "-", 
+        detalles: "Camiseta de algodón amarillo vivo, cuello polo verde y escudo CBD bordado." 
+    },
+    "1966": { 
+        pais: "Inglaterra", 
+        marca: "Umbro", 
+        detalles: "De algodón entrelazado rojo manga larga y cuello redondo." 
+    },
+    "1970": { 
+        pais: "Brasil", 
+        marca: "-", 
+        detalles: "Camiseta de punto de algodón ligero amarillo canario, cuello redondo y puños verdes." 
+    },
+    "1974": { 
+        pais: "Alemania", 
+        marca: "-", 
+        detalles: "Camiseta de poliéster y algodón blanco satinado, cuello redondo negro." 
+    },
+    "1978": { 
+        pais: "Argentina", 
+        marca: "-", 
+        detalles: "Camiseta de piqué técnico, bastones celestes/blancos y cuello redondo." 
+    },
+    "1982": { 
+        pais: "Italia", 
+        marca: "-", 
+        detalles: "Camiseta de piqué de polialgodón azul, cuello polo y ribetes." 
+    },
+    "1986": { 
+        pais: "Argentina", 
+        marca: "-", 
+        detalles: "Camiseta de poliester microperforado, cuello redondo y bastones." 
+    },
+    "1990": { 
+        pais: "Alemania", 
+        marca: "-", 
+        detalles: "Camiseta de poliéster brillante blanco, cuello polo y gráfico geométrico." 
+    },
+    "1994": { 
+        pais: "Brasil", 
+        marca: "-", 
+        detalles: "Camiseta de poliéster Jacquard amarillo, cuello polo y escudos en marca de agua." 
+    },
+    "1998": { 
+        pais: "Francia", 
+        marca: "-", 
+        detalles: "Camiseta de tejido técnico satinado azul Francia con cuello polo blanco, complementada con paneles de ventilación discretos en los costados." 
+    },
+    "2002": { 
+        pais: "Brasil", 
+        marca: "-", 
+        detalles: "Camiseta de tejido de alto rendimiento amarillo vivo con paneles ergonómicos verdes, ventilación dinámica en los costados y doble capa interna transpirable." 
+    },
+    "2006": { 
+        pais: "Italia", 
+        marca: "-", 
+        detalles: "Camiseta de licra elástica de ajuste ceñido al cuerpo azul azzurra con sutiles paneles de ventilación simétricos en color negro bajo las axilas." 
+    },
+    "2010": { 
+        pais: "Espana", 
+        marca: "-", 
+        detalles: "Camiseta de tejido técnico reciclado en tono azul marino, con cuello de solapas finas, detalles en contraste rojo y amarillo en los hombros, y el escudo nacional coronado por una estrella dorada bordada de emergencia para el partido definitivo." 
+    },
+    "2014": { 
+        pais: "Alemania", 
+        marca: "-", 
+        detalles: "Camiseta ultraligera de alto rendimiento blanca, con cuello redondo y una pronunciada \"V\" en el pecho estampada en degradé rojo y negro." 
+    },
+    "2018": { 
+        pais: "Francia", 
+        marca: "-", 
+        detalles: "Camiseta de tejido técnico texturizado azul marino oscuro, con cuello de solapa abotonada que oculta la bandera nacional, un tramado gráfico en zig-zag azul claro en las mangas hiperdinámicas y un patrón interno de ventilación transpirable de última generación." 
+    },
+    "2022": { 
+        pais: "Argentina", 
+        marca: "-", 
+        detalles: "Camiseta de tejido ultraligero termo-regulado, cuello redondo, el Sol de Mayo estampado en la nuca y el escudo coronado por detalles dorados texturizados." 
+    }
 };
 
 // Esperamos a que todo el HTML cargue antes de ejecutar el script
 document.addEventListener("DOMContentLoaded", () => {
-    // Capturamos los elementos del DOM (HTML) que vamos a modificar
+    // Capturamos los elementos del DOM
     const botones = document.querySelectorAll(".btn-mundial");
     const visor = document.getElementById("visor-3d");
     const fichaMundial = document.getElementById("ficha-mundial");
@@ -35,23 +122,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const fichaMarca = document.getElementById("ficha-marca");
     const fichaDetalles = document.getElementById("ficha-detalles");
 
-    // Le agregamos un evento de "click" a cada botón
+    // Le agregamos el evento click a cada botón
     botones.forEach(boton => {
         boton.addEventListener("click", () => {
-            // Obtenemos el año desde el atributo data-year del botón (ej: "1930")
             const year = boton.getAttribute("data-year");
             const data = mundiales[year];
 
             if (data) {
-                // 1. Construimos la ruta exacta siguiendo tu regla: Pais + Año (ej: Uruguay1930)
+                // Generamos la ruta (ej: Uruguay1930.glb)
                 const nombreArchivo = `${data.pais}${year}.glb`;
-                
-                // 2. Actualizamos el visor 3D
                 visor.src = `assets/camisetas/${nombreArchivo}`;
 
-                // 3. Actualizamos los textos de la ficha técnica
-                fichaMundial.textContent = `${data.pais} ${year}`;
-                fichaCampeon.textContent = data.pais;
+                // Actualizamos los textos de la ficha
+                fichaMundial.textContent = `${data.pais === "Espana" ? "España" : data.pais} ${year}`;
+                fichaCampeon.textContent = data.pais === "Espana" ? "España" : data.pais;
                 fichaMarca.textContent = data.marca;
                 fichaDetalles.textContent = data.detalles;
             }

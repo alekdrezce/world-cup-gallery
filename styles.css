@@ -32,40 +32,54 @@ header {
     display: block;
 }
 
-/* --- PANEL DE BOTONES (Mundiales) --- */
-.botonera-mundiales {
-    display: flex;
-    flex-wrap: wrap; /* Permite que los botones salten a una segunda fila */
-    justify-content: center;
-    gap: 15px;
-    max-width: 800px; /* Limita el ancho para forzar visualmente las filas */
-    margin-bottom: 40px;
+/* --- BOTONERA (GRILLA AUTOMÁTICA) --- */
+.botonera {
+    display: grid;
+    /* Esto crea la cuadrícula: mete todos los botones de 240px que entren por fila */
+    grid-template-columns: repeat(auto-fit, minmax(240px, max-content)); 
+    gap: 20px; /* Espacio entre los botones */
+    justify-content: center; /* Centra toda la grilla en la pantalla */
+    padding: 20px;
+    width: 100%;
+    max-width: 1100px; /* Le damos más espacio para que entren 4 por fila cómodos */
+    margin: 0 auto;
 }
 
+/* --- BOTONES (TAMAÑO 3x1) --- */
 .btn-mundial {
-    width: 70px;
-    height: 70px; /* Botón perfectamente cuadrado */
-    border-radius: 15px; /* Puntas redondeadas */
-    border: 2px solid transparent;
-    background-color: #fff;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombrita suave */
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 5px;
+    justify-content: space-between; 
+    width: 240px;       /* Ancho */
+    height: 80px;       /* Alto (Exactamente un tercio del ancho) */
+    background-color: #ffffff;
+    border: none;
+    border-radius: 40px; /* Para que quede forma de píldora (mitad de la altura) */
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    padding: 0 25px;    /* Espacio interno a los costados */
+    margin: 0 auto;     /* Centra el botón en su propia cajita de la grilla */
 }
 
+/* Efecto al pasar el mouse */
 .btn-mundial:hover {
-    transform: translateY(-5px); /* Efectito de levante al pasar el mouse */
-    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
+/* Tamaño del logo adaptado al nuevo botón */
 .btn-mundial img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Evita que el logo del mundial se deforme */
+    height: 50px; 
+    width: 50px;
+    object-fit: contain; 
+}
+
+/* Texto del año adaptado al nuevo botón */
+.btn-mundial span {
+    font-size: 2.2rem; /* Letra más grande para acompañar */
+    font-weight: 800; 
+    color: #0b4a86; 
 }
 
 /* --- VISOR 3D --- */

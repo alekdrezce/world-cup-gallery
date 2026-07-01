@@ -76,23 +76,25 @@ main {
     align-items: center;
 }
 
+/* --- CONTENEDOR DEL VISOR --- */
 .visor-container {
     width: 100%;
-    max-width: 600px;
-    /* Un fondo semitransparente con efecto vidrio para destacar la camiseta sobre el fondo.svg */
+    max-width: 900px; /* Antes estaba en 600px. Aumentando esto, se hace mucho más ancho en pantallas grandes */
     background: rgba(255, 255, 255, 0.3); 
     border-radius: 20px;
     padding: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     margin-bottom: 25px;
     backdrop-filter: blur(10px); 
+    display: flex;
+    justify-content: center;
 }
 
+/* --- TAMAÑO DEL MODELO 3D --- */
 model-viewer {
     width: 100%;
-    height: 450px; /* Altura generosa para que el zoom y la rotación sean cómodos */
-    background-color: transparent;
-    outline: none;
+    height: 550px; /* Le damos buena altura para acompañar el ancho. Si lo querés más alto, subí este número */
+    outline: none; /* Esto evita que aparezca un recuadro negro molesto al hacerle click */
 }
 
 /* --- FICHA TÉCNICA --- */

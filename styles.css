@@ -141,3 +141,29 @@ model-viewer {
     color: #cccccc; /* Un gris claro para diferenciar los detalles textiles */
     line-height: 1.5;
 }
+/* --- ADAPTACIÓN PARA CELULARES (MEDIA QUERIES) --- */
+@media (max-width: 768px) {
+    .botonera {
+        /* Achicamos la grilla para que entren 2 por fila en el celular */
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
+        gap: 12px; 
+        padding: 10px;
+    }
+
+    .btn-mundial {
+        width: 150px;       /* Nuevo ancho para celular */
+        height: 50px;       /* Nuevo alto (proporción 3x1) */
+        border-radius: 25px; /* Siempre la mitad del alto */
+        padding: 0 15px;    
+    }
+
+    .btn-mundial img {
+        height: 32px; /* Logo más chico */
+        width: 32px;
+    }
+
+    .btn-mundial span {
+        font-size: 1.5rem; /* Letra más chica */
+        margin-left: 5px;
+    }
+}

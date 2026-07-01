@@ -167,3 +167,41 @@ model-viewer {
         margin-left: 5px;
     }
 }
+/* --- PIE DE PÁGINA (FOOTER) --- */
+.pie-pagina {
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 40px;
+    color: #ffffff; /* Pongo el texto en blanco, cambialo si tu fondo es claro */
+}
+
+.pie-pagina p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* Sombra para que se lea perfecto sobre cualquier fondo */
+}
+
+.redes-sociales {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* Espacio entre los dos botones */
+}
+
+.redes-sociales a {
+    text-decoration: none;
+}
+
+/* Tamaño y efecto de los botones de redes */
+.redes-sociales img {
+    width: 60px; /* Tamaño del botón. Si te parecen muy grandes, bajalo a 40px o 50px */
+    height: auto;
+    border-radius: 15px; /* Por si las imágenes son cuadradas, les suaviza los bordes */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.redes-sociales img:hover {
+    transform: translateY(-5px) scale(1.05); /* Efecto de que "salta" hacia arriba al pasar el mouse */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}

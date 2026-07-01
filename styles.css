@@ -93,7 +93,7 @@ main {
 /* --- TAMAÑO DEL MODELO 3D --- */
 model-viewer {
     width: 100%;
-    height: 550px; /* Le damos buena altura para acompañar el ancho. Si lo querés más alto, subí este número */
+    height: 650px; /* Le damos buena altura para acompañar el ancho. Si lo querés más alto, subí este número */
     outline: none; /* Esto evita que aparezca un recuadro negro molesto al hacerle click */
 }
 

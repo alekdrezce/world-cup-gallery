@@ -194,7 +194,7 @@ model-viewer {
 
 /* Tamaño y efecto de los botones de redes */
 .redes-sociales img {
-    width: 60px; /* Tamaño del botón. Si te parecen muy grandes, bajalo a 40px o 50px */
+    width: 120px; /* Tamaño del botón. Si te parecen muy grandes, bajalo a 40px o 50px */
     height: auto;
     border-radius: 15px; /* Por si las imágenes son cuadradas, les suaviza los bordes */
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);

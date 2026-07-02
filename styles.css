@@ -144,28 +144,43 @@ model-viewer {
 /* --- ADAPTACIÓN PARA CELULARES (MEDIA QUERIES) --- */
 @media (max-width: 768px) {
     .botonera {
-        /* Forzamos exactamente 5 columnas, pase lo que pase */
+        /* 5 columnas clavadas */
         grid-template-columns: repeat(5, 1fr); 
-        gap: 4px; /* Espacio mínimo para no desperdiciar pantalla */
+        gap: 4px; 
         padding: 5px;
     }
 
     .btn-mundial {
-        width: 100%;       /* Que ocupe todo el ancho de su columna */
-        aspect-ratio: 3 / 1; /* Esta joyita de CSS mantiene tu proporción 3 de ancho x 1 de alto automáticamente */
+        width: 100%;       
+        aspect-ratio: 3 / 1; 
         height: auto;       
-        border-radius: 8px; /* Borde más chico acorde al tamaño */
-        padding: 0 2px;    
+        border-radius: 8px; 
+        padding: 0 4px;
+        justify-content: center; /* Forzamos el centrado */
+        gap: 5px;                /* Gap milimétrico para juntar logo y año */
     }
 
     .btn-mundial img {
-        height: 14px; /* Logo chiquitito */
+        height: 14px; 
         width: 14px;
     }
 
     .btn-mundial span {
-        font-size: 0.55rem; /* Texto bien reducido para que entre en la píldora */
-        margin-left: 2px;
+        font-size: 0.55rem; 
+        margin-left: 0; /* Lo pasamos a 0 porque ahora el gap hace el trabajo */
+    }
+
+    /* --- VISOR 3D (ACHICADO PARA CELULAR) --- */
+    .visor-container {
+        padding: 10px; 
+        margin-bottom: 15px;
+        max-width: 95%; 
+    }
+
+    model-viewer {
+        width: 100%;
+        height: 350px !important; /* Altura controlada a la fuerza */
+        max-height: 50vh; /* Límite extra: máximo la mitad de la pantalla */
     }
 }
 /* --- PIE DE PÁGINA (FOOTER) --- */

@@ -32,18 +32,22 @@ header {
     display: block;
 }
 
-/* --- BOTONERA (GRILLA DE 5 POR FILA) --- */
-.botonera {
-    display: grid;
-    /* Usamos auto-fit con 240px exactos para que se adapte perfecto */
-    grid-template-columns: repeat(auto-fit, 240px); 
-    gap: 20px; 
-    justify-content: center; 
-    padding: 20px;
-    width: 100%;
-    /* Agrandamos la caja principal para que entren 5 botones cómodos (1280px) */
-    max-width: 1350px; 
-    margin: 0 auto;
+/* --- BOTONES (TAMAÑO 3x1) --- */
+.btn-mundial {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Cambiado para que todo se agrupe al centro */
+    gap: 15px;              /* Espacio corto y fijo entre el logo y el año */
+    width: 240px;       
+    height: 80px;       
+    background-color: #ffffff;
+    border: none;
+    border-radius: 40px; 
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    padding: 0 20px;    
+    margin: 0 auto;     
 }
 
 /* --- BOTONES (TAMAÑO 3x1) --- */

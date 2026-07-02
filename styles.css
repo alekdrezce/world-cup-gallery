@@ -130,7 +130,7 @@ model-viewer {
 .ficha-tecnica {
     width: 100%;
     max-width: 600px;
-    background: #272932; /* El color oscuro que elegiste */
+    background: #00385c; /* El color oscuro que elegiste */
     color: #ffffff; /* Texto general en blanco */
     padding: 25px;
     border-radius: 20px;
@@ -158,33 +158,55 @@ model-viewer {
 }
 /* --- ADAPTACIÓN PARA CELULARES (MEDIA QUERIES) --- */
 @media (max-width: 768px) {
-    .botonera {
-        /* 5 columnas clavadas */
-        grid-template-columns: repeat(5, 1fr); 
-        gap: 4px; 
-        padding: 5px;
-        margin: 0 auto;
-    }
+    /* --- BOTONERA (2 FILAS DE 11 PARA PC) --- */
+.botonera {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr); /* 11 columnas exactas */
+    gap: 8px; /* Achicamos el espacio entre botones para que entren cómodos */
+    justify-content: center; 
+    padding: 0px 20px 20px 20px; 
+    width: 100%;
+    max-width: 1400px; /* Ensanchamos el contenedor principal al estándar de PC */
+    margin: -15px auto 0 auto; 
+}
 
-    .btn-mundial {
-        width: 100%;       
-        aspect-ratio: 3 / 1; 
-        height: auto;       
-        border-radius: 8px; 
-        padding: 0 4px;
-        justify-content: center; /* Forzamos el centrado */
-        gap: 5px;                /* Gap milimétrico para juntar logo y año */
-    }
+/* --- BOTONES (COMPACTOS 3x1 PARA PC) --- */
+.btn-mundial {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; 
+    width: 100%; /* Ocupan todo el ancho de su fraccion (1 de 11) */
+    aspect-ratio: 3 / 1; /* Tu regla de oro: siempre 3 veces más ancho que alto */
+    height: auto; /* Anulamos la altura fija de 80px */
+    background-color: #ffffff;
+    border: none;
+    border-radius: 12px; /* Borde más chico para acompañar el nuevo tamaño */
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    padding: 0 4px;    
+}
 
-    .btn-mundial img {
-        height: 14px; 
-        width: 14px;
-    }
+/* Efecto al pasar el mouse */
+.btn-mundial:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
 
-    .btn-mundial span {
-        font-size: 0.55rem; 
-        margin-left: 0; /* Lo pasamos a 0 porque ahora el gap hace el trabajo */
-    }
+/* Reducimos el logo para el nuevo botón */
+.btn-mundial img {
+    height: 20px; 
+    width: 20px;
+    object-fit: contain; 
+}
+
+/* Reducimos el texto para el nuevo botón */
+.btn-mundial span {
+    font-size: 0.9rem; /* Letra un poco más chica para que entre perfecto */
+    font-weight: 800; 
+    color: #0b4a86; 
+}
 .texto-guia-superior {
         font-size: 0.95rem; /* Achicamos la letra */
         margin: 10px auto 15px auto; /* Achicamos los espacios */

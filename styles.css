@@ -145,27 +145,28 @@ model-viewer {
 /* --- ADAPTACIÓN PARA CELULARES (MEDIA QUERIES) --- */
 @media (max-width: 768px) {
     .botonera {
-        /* Achicamos la grilla para que entren 2 por fila en el celular */
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
-        gap: 12px; 
-        padding: 10px;
+        /* Forzamos exactamente 5 columnas, pase lo que pase */
+        grid-template-columns: repeat(5, 1fr); 
+        gap: 4px; /* Espacio mínimo para no desperdiciar pantalla */
+        padding: 5px;
     }
 
     .btn-mundial {
-        width: 150px;       /* Nuevo ancho para celular */
-        height: 50px;       /* Nuevo alto (proporción 3x1) */
-        border-radius: 25px; /* Siempre la mitad del alto */
-        padding: 0 15px;    
+        width: 100%;       /* Que ocupe todo el ancho de su columna */
+        aspect-ratio: 3 / 1; /* Esta joyita de CSS mantiene tu proporción 3 de ancho x 1 de alto automáticamente */
+        height: auto;       
+        border-radius: 8px; /* Borde más chico acorde al tamaño */
+        padding: 0 2px;    
     }
 
     .btn-mundial img {
-        height: 32px; /* Logo más chico */
-        width: 32px;
+        height: 14px; /* Logo chiquitito */
+        width: 14px;
     }
 
     .btn-mundial span {
-        font-size: 1.5rem; /* Letra más chica */
-        margin-left: 5px;
+        font-size: 0.55rem; /* Texto bien reducido para que entre en la píldora */
+        margin-left: 2px;
     }
 }
 /* --- PIE DE PÁGINA (FOOTER) --- */

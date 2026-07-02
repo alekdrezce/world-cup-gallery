@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto | World Cup Gallery</title>
+  <meta name="description" content="Contactate con World Cup Gallery. Enviá fotos, correcciones o sugerencias sobre Mundiales.">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card: #161b22;
+      --text: #c9d1d9;
+      --muted: #8b949e;
+      --accent: #2f81f7;
+      --border: #30363d;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 20px;
+      text-align: center;
+    }
+    header a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .container {
+      max-width: 720px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h1 { margin: 0 0 10px; font-size: 2rem; }
+    p.sub { color: var(--muted); margin-top: 0; }
+    
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 24px;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin: 14px 0 6px;
+      font-size: 0.95rem;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 1rem;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    button {
+      margin-top: 18px;
+      background: var(--accent);
+      color: #fff;
+      border: 0;
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    button:hover { opacity: 0.9; }
+    
+    .note {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 12px;
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      padding: 40px 20px;
+      border-top: 1px solid var(--border);
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/">← Volver a World Cup Gallery</a>
+  </header>
+
+  <main class="container">
+    <h1>Contacto</h1>
+    <p class="sub">¿Tenés una foto histórica que falta? ¿Viste un error? Escribime acá.</p>
+
+    <div class="card">
+      <form action="https://formspree.io/f/TU_ID_AQUI" method="POST">
+        <label for="name">Nombre</label>
+        <input type="text" id="name" name="name" required placeholder="Tu nombre">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="tu@email.com">
+
+        <label for="subject">Asunto</label>
+        <input type="text" id="subject" name="subject" placeholder="Ej: Foto Mundial 1994">
+
+        <label for="message">Mensaje</label>
+        <textarea id="message" name="message" rows="6" required placeholder="Contame qué querés compartir..."></textarea>
+
+        <button type="submit">Enviar mensaje</button>
+        <p class="note">Tus datos solo se usan para responderte. No hago spam.</p>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    © 2026 World Cup Gallery
+  </footer>
+</body>
+</html>

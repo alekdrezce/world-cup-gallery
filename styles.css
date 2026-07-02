@@ -31,58 +31,50 @@ header {
     height: auto;
     display: block;
 }
-/* --- BOTONERA (GRILLA DE 5 POR FILA) --- */
+/* =========================================
+   1. BOTONERA Y BOTONES (ESCRITORIO / PC)
+   ========================================= */
 .botonera {
     display: grid;
-    /* Usamos auto-fit con 240px exactos para que se adapte perfecto (INTACTO) */
-    grid-template-columns: repeat(auto-fit, 240px); 
-    gap: 20px; 
+    grid-template-columns: repeat(11, 1fr); /* PC: 11 columnas exactas */
+    gap: 8px; 
     justify-content: center; 
-    
-    /* CAMBIO 1: Bajamos el primer valor (arriba) a 0px para quitarle aire interno */
     padding: 0px 20px 20px 20px; 
-    
     width: 100%;
-    /* Agrandamos la caja principal para que entren 5 botones cómodos (1280px) (INTACTO) */
-    max-width: 1350px; 
-    
-    /* CAMBIO 2: Le damos -15px al primer valor (arriba) para empujarla físicamente contra el logo */
+    max-width: 1400px; 
     margin: -15px auto 0 auto; 
 }
-/* --- BOTONES (TAMAÑO 3x1) --- */
+
 .btn-mundial {
     display: flex;
     align-items: center;
-    justify-content: center; /* Cambiado para que todo se agrupe al centro */
-    gap: 15px;              /* Espacio corto y fijo entre el logo y el año */
-    width: 240px;       
-    height: 80px;       
+    justify-content: center;
+    gap: 5px; 
+    width: 100%; 
+    aspect-ratio: 3 / 1; 
+    height: auto; 
     background-color: #ffffff;
     border: none;
-    border-radius: 40px; 
+    border-radius: 12px; 
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    padding: 0 20px;    
-    margin: 0 auto;     
+    padding: 0 4px;    
 }
 
-/* Efecto al pasar el mouse */
 .btn-mundial:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
-/* Tamaño del logo adaptado al nuevo botón */
 .btn-mundial img {
-    height: 50px; 
-    width: 50px;
+    height: 20px; 
+    width: 20px;
     object-fit: contain; 
 }
 
-/* Texto del año adaptado al nuevo botón */
 .btn-mundial span {
-    font-size: 2.2rem; /* Letra más grande para acompañar */
+    font-size: 0.9rem; 
     font-weight: 800; 
     color: #0b4a86; 
 }
@@ -156,24 +148,21 @@ model-viewer {
     color: #cccccc; /* Un gris claro para diferenciar los detalles textiles */
     line-height: 1.5;
 }
-/* --- ADAPTACIÓN PARA CELULARES (MEDIA QUERIES) --- */
+/* =========================================
+   2. ADAPTACIÓN PARA CELULARES
+   ========================================= */
 @media (max-width: 768px) {
     .botonera {
-        /* 5 columnas clavadas */
-        grid-template-columns: repeat(5, 1fr); 
+        grid-template-columns: repeat(5, 1fr); /* CELULAR: 5 columnas clavadas */
         gap: 4px; 
         padding: 5px;
-        margin: 0 auto;
+        margin: 0 auto; /* Resetea el margen negativo */
     }
 
     .btn-mundial {
-        width: 100%;       
-        aspect-ratio: 3 / 1; 
-        height: auto;       
         border-radius: 8px; 
         padding: 0 4px;
-        justify-content: center; /* Forzamos el centrado */
-        gap: 5px;                /* Gap milimétrico para juntar logo y año */
+        gap: 5px;                
     }
 
     .btn-mundial img {
@@ -183,10 +172,21 @@ model-viewer {
 
     .btn-mundial span {
         font-size: 0.55rem; 
-        margin-left: 0; /* Lo pasamos a 0 porque ahora el gap hace el trabajo */
+        margin-left: 0; 
     }
 
-    /* --- VISOR 3D (ACHICADO PARA CELULAR) --- */
+    /* Textos guía en celular */
+    .texto-guia-superior {
+        font-size: 0.95rem; 
+        margin: 10px auto 15px auto; 
+    }
+
+    .texto-guia-inferior {
+        font-size: 0.85rem;
+        margin-top: 15px;
+    }
+
+    /* Visor 3D en celular */
     .visor-container {
         padding: 10px; 
         margin-bottom: 15px;
@@ -195,8 +195,8 @@ model-viewer {
 
     model-viewer {
         width: 100%;
-        height: 350px !important; /* Altura controlada a la fuerza */
-        max-height: 50vh; /* Límite extra: máximo la mitad de la pantalla */
+        height: 350px !important; 
+        max-height: 50vh; 
     }
 }
 /* --- PIE DE PÁGINA (FOOTER) --- */

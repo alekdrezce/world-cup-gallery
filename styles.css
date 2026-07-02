@@ -34,15 +34,20 @@ header {
 /* --- BOTONERA (GRILLA DE 5 POR FILA) --- */
 .botonera {
     display: grid;
-    /* Usamos auto-fit con 240px exactos para que se adapte perfecto */
+    /* Usamos auto-fit con 240px exactos para que se adapte perfecto (INTACTO) */
     grid-template-columns: repeat(auto-fit, 240px); 
     gap: 20px; 
     justify-content: center; 
-    padding: 20px;
+    
+    /* CAMBIO 1: Bajamos el primer valor (arriba) a 0px para quitarle aire interno */
+    padding: 0px 20px 20px 20px; 
+    
     width: 100%;
-    /* Agrandamos la caja principal para que entren 5 botones cómodos (1280px) */
+    /* Agrandamos la caja principal para que entren 5 botones cómodos (1280px) (INTACTO) */
     max-width: 1350px; 
-    margin: 0 auto;
+    
+    /* CAMBIO 2: Le damos -15px al primer valor (arriba) para empujarla físicamente contra el logo */
+    margin: -15px auto 0 auto; 
 }
 /* --- BOTONES (TAMAÑO 3x1) --- */
 .btn-mundial {
@@ -89,7 +94,17 @@ main {
     flex-direction: column;
     align-items: center;
 }
-
+/* --- TEXTO GUÍA (ENTRE BOTONERA Y VISOR) --- */
+.texto-guia-superior {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #ffffff; /* Pongo blanco, si tu fondo es blanco cambialo a #0b4a86 o negro */
+    margin: 15px auto 25px auto; /* Le da 15px de aire arriba y 25px de aire abajo */
+    max-width: 800px; /* Evita que el texto se estire de punta a punta en monitores grandes */
+    padding: 0 20px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4); /* Sombrita para que se lea impecable */
+}
 /* --- CONTENEDOR DEL VISOR --- */
 .visor-container {
     width: 100%;
@@ -148,6 +163,7 @@ model-viewer {
         grid-template-columns: repeat(5, 1fr); 
         gap: 4px; 
         padding: 5px;
+        margin: 0 auto;
     }
 
     .btn-mundial {
@@ -169,7 +185,10 @@ model-viewer {
         font-size: 0.55rem; 
         margin-left: 0; /* Lo pasamos a 0 porque ahora el gap hace el trabajo */
     }
-
+.texto-guia-superior {
+        font-size: 0.95rem; /* Achicamos la letra */
+        margin: 10px auto 15px auto; /* Achicamos los espacios */
+    }
     /* --- VISOR 3D (ACHICADO PARA CELULAR) --- */
     .visor-container {
         padding: 10px; 

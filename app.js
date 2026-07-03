@@ -203,14 +203,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 const nombreArchivo = `${data.campeon === "España" ? "Espana" : data.campeon}${year}.glb`;
                 visor.src = `assets/camisetas/${nombreArchivo}`;
 
-                // Actualizamos el encabezado con la sede y el año (ej: "México 1986")
+                // Actualizamos el encabezado con la sede y el año
                 fichaMundial.textContent = `${data.sede} ${year}`;
                 
-                // Actualizamos los textos de la ficha respetando el nuevo orden
-                fichaCampeon.textContent = data.campeon;
-                fichaFecha.textContent = data.fecha;
-                fichaResultado.textContent = data.resultado;
-                fichaMarca.textContent = data.marca;
+                // Inyectamos las etiquetas en negrita junto con los datos usando innerHTML
+                fichaCampeon.innerHTML = `<strong>Campeón:</strong> ${data.campeon}`;
+                fichaFecha.innerHTML = `<strong>Fecha:</strong> ${data.fecha}`;
+                fichaResultado.innerHTML = `<strong>Resultado:</strong> ${data.resultado}`;
+                fichaMarca.innerHTML = `<strong>Marca:</strong> ${data.marca}`;
+                
+                // El detalle queda igual
                 fichaDetalles.textContent = data.detalles;
             }
         });

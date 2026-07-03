@@ -30,6 +30,7 @@ header {
     max-width: 350px; /* Tamaño máximo del logo horizontal */
     height: auto;
     display: block;
+    margin: 0 auto;
 }
 /* =========================================
    1. BOTONERA Y BOTONES (ESCRITORIO / PC)

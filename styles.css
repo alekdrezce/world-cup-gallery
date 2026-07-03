@@ -26,7 +26,7 @@ header {
 }
 
 .logo-principal {
-    width: 100%;
+    width: 50%;
     max-width: 350px; /* Tamaño máximo del logo horizontal */
     height: auto;
     display: block;

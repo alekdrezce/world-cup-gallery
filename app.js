@@ -199,8 +199,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const data = mundiales[year];
 
             if (data) {
-                // Filtro para el nombre de España en el archivo 3D (para que busque Espana2010.glb en vez de España2010.glb)
-                const nombreArchivo = `${data.campeon === "España" ? "Espana" : data.campeon}${year}.glb`;
+                // Filtro para el nombre de España en el archivo 3D (para que busque Espaa2010.glb en vez de España2010.glb)
+                const nombreArchivo = `${data.campeon === "España" ? "España" : data.campeon}${year}.glb`;
                 visor.src = `assets/camisetas/${nombreArchivo}`;
 
                 // Actualizamos el encabezado con la sede y el año

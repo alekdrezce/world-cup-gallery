@@ -23,6 +23,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-5WV5F57R');</script>
 <!-- End Google Tag Manager -->
+ <!-- Importar la librería de Model Viewer de Google -->
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -173,6 +175,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="timeline-dot"></div>
                 <span class="timeline-year">2022</span>
             </div>
+            
 
         </div>
     </nav>
@@ -181,34 +184,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <button class="nav-arrow next-btn" id="nextBtn">❯</button>
 </div>
 
-<!-- ==========================================================================
-   COMPONENTE INTERACTIVO: EL BOTÓN FLOTANTE (Pégalo dentro de tu model-viewer)
-   ========================================================================== -->
-<button class="btn-info-flotante" id="btnFlotanteInfo">
-    <div id="btn-texto-dinamico">Catar 2022</div>
-    <div class="mas-info-tag">+ INFO</div>
-</button>
+<!-- CONTENEDOR DEL VISOR 3D -->
+    <!-- (Le agregamos position: relative; para que el botón flotante no se escape de esta caja) -->
+    <div class="visor-container card-visor" style="position: relative;">
+        
+        <!-- ACÁ VA TU BOTÓN FLOTANTE -->
+        <button class="btn-info-flotante" id="btnFlotanteInfo">
+            <div id="btn-texto-dinamico">Catar 2022</div>
+            <div class="mas-info-tag">+ INFO</div>
+        </button>
 
-<!-- ==========================================================================
-   SISTEMA DE POPUP EMERGENTE (MODAL DESPLEGABLE)
-   ========================================================================== -->
-<div class="modal-overlay" id="modalFicha">
-    <section class="ficha-tecnica" id="ficha">
-        <button class="modal-close" id="btnCerrarModal">×</button>
-        
-        <!-- Conservamos tus mismos IDs exactos para que tu app.js original los modifique sin enterarse -->
-        <h2 id="ficha-mundial">Catar 2022</h2> 
-        
-        <div id="contenedor-datos">
-            <p id="ficha-campeon"><strong>Campeón:</strong> Argentina</p>
-            <p id="ficha-fecha"><strong>Fecha:</strong> 18 de diciembre de 2022</p>
-            <p id="ficha-resultado"><strong>Resultado:</strong> Argentina 3 - 3 Francia (4-2 pen.)</p>
-            <p id="ficha-marca"><strong>Marca:</strong> Adidas</p>
+        <!-- EL VISOR 3D -->
+        <model-viewer 
+            id="visorCamiseta"
+            src="assets/camisetas/Uruguay1930.glb" 
+            camera-controls 
+            auto-rotate 
+            rotation-per-second="30deg"
+            shadow-intensity="1" 
+            environment-image="neutral" 
+            exposure="1" 
+            alt="Modelo 3D de camiseta histórica del Mundial">
+        </model-viewer>
+    </div>
+
+    <!-- EL POPUP / MODAL (Este es el recuadro negro que aparece al hacer click en + INFO) -->
+    <div class="modal-overlay" id="modalFicha">
+        <div class="ficha-tecnica modal-contenido">
+            <!-- Botón para cerrar la ventana -->
+            <button id="btnCerrarModal" class="modal-close">×</button>
+            
+            <h2 id="ficha-mundial">Uruguay 1930</h2>
+            
+            <div id="contenedor-datos">
+                <p><strong>Sede</strong> Uruguay</p>
+                <p><strong>Campeón</strong> Uruguay</p>
+            </div>
+            
+            <p id="ficha-detalles">Textura de algodón de época, cuello acordonado y escudo cosido original.</p>
         </div>
-        
-        <p class="detalles" id="ficha-detalles">Camiseta de tejido ultraligero termo-regulado, cuello redondo, el Sol de Mayo estampado en la nuca y el escudo coronado por detalles dorados texturizados.</p>
-    </section>
-    </main>
+    </div>
+</main>
 
     <script src="app.js"></script>
 </body>

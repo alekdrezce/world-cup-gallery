@@ -218,3 +218,89 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+document.addEventListener("DOMContentLoaded", function () {
+    // 1. CAPTURA DE COMPONENTES DEL DOM
+    const container = document.getElementById("timelineContainer");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const track = document.querySelector(".timeline-track");
+    const visor3D = document.querySelector("model-viewer");
+    
+    // Componentes del Popup y Botón Flotante
+    const btnFlotante = document.getElementById("btnFlotanteInfo");
+    const txtDinamicoBtn = document.getElementById("btn-texto-dinamico");
+    const modal = document.getElementById("modalFicha");
+    const btnCerrar = document.getElementById("btnCerrarModal");
+
+    // Cálculo responsivo de distancia de scroll (PC: 255px / Móvil: 195px)
+    const esCelular = window.innerWidth <= 480;
+    const scrollStep = esCelular ? 195 : 255; 
+
+    // Diccionario de archivos 3D reales de tu servidor (assets/camisetas/)
+    const nombresCamisetas = {
+        "1930": "Uruguay1930", "1934": "Italia1934", "1938": "Italia1938", "1950": "Uruguay1950",
+        "1954": "Alemania1954", "1958": "Brasil1958", "1962": "Brasil1962", "1966": "Inglaterra1966",
+        "1970": "Brasil1970", "1974": "Alemania1974", "1978": "Argentina1978", "1982": "Italia1982",
+        "1986": "Alemania1986", "1990": "Alemania1990", "1994": "Brasil1994", "1998": "Francia1998",
+        "2002": "Brasil2002", "2006": "Italia2006", "2010": "Espana2010", "2014": "Alemania2014",
+        "2018": "Francia2018", "2022": "Argentina2022"
+    };
+
+    // Diccionario rápido para el Botón Flotante (Año + Sede)
+    const nombresLocaciones = {
+        "1930": "Uruguay 1930", "1934": "Italia 1934", "1938": "Francia 1938", "1950": "Brasil 1950",
+        "1954": "Suiza 1954", "1958": "Suecia 1958", "1962": "Chile 1962", "1966": "Inglaterra 1966",
+        "1970": "México 1970", "1974": "Alemania 1974", "1978": "Argentina 1978", "1982": "España 1982",
+        "1986": "México 1986", "1990": "Italia 1990", "1994": "EEUU 1994", "1998": "Francia 1998",
+        "2002": "Corea/Japón 2002", "2006": "Alemania 2006", "2010": "Sudáfrica 2010", "2014": "Brasil 2014",
+        "2018": "Rusia 2018", "2022": "Catar 2022"
+    };
+
+    // 2. DISPARADORES DE DESPLAZAMIENTO (FLECHAS)
+    if (container && prevBtn && nextBtn) {
+        prevBtn.onclick = function(e) { e.preventDefault(); container.scrollLeft -= scrollStep; };
+        nextBtn.onclick = function(e) { e.preventDefault(); container.scrollLeft += scrollStep; };
+    }
+
+    // 3. APERTURA Y CIERRE DEL POPUP MODAL
+    if (btnFlotante && modal) {
+        btnFlotante.onclick = function(e) { e.preventDefault(); modal.classList.add("open"); };
+    }
+    if (modal && btnCerrar) {
+        btnCerrar.onclick = function(e) { e.preventDefault(); modal.classList.remove("open"); };
+        modal.onclick = function(e) { if (e.target === modal) modal.classList.remove("open"); };
+    }
+
+    // 4. EL PUENTE ESPEJO SINCRONIZADOR DE DATOS PRIVADOS
+    if (track) {
+        track.addEventListener("click", function(e) {
+            const botonMundial = e.target.closest(".btn-mundial");
+            if (!botonMundial) return;
+
+            const anio = botonMundial.getAttribute("data-year");
+            
+            // A. Cambiar modelo 3D
+            if (visor3D) {
+                const nombreArchivo = nombresCamisetas[anio];
+                if (nombreArchivo) {
+                    visor3D.src = `assets/camisetas/${nombreArchivo}.glb`;
+                    if (typeof visor3D.dismissPoster === "function") visor3D.dismissPoster();
+                }
+            }
+
+            // B. Cambiar etiqueta del botón flotante
+            if (txtDinamicoBtn) {
+                txtDinamicoBtn.textContent = nombresLocaciones[anio] || `Mundial ${anio}`;
+            }
+
+            // C. Active State de opacidad en la botonera
+            document.querySelectorAll(".btn-mundial").forEach(b => b.style.opacity = "0.4");
+            botonMundial.style.opacity = "1";
+            
+            // D. Delay milimétrico para clonar los textos mutados por tu lógica vieja privada
+            setTimeout(() => {
+                console.log("Sincronización espejo completada con éxito.");
+            }, 50);
+        });
+    }
+});

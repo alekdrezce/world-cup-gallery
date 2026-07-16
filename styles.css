@@ -1,4 +1,6 @@
-/* Reset básico para asegurar que se vea igual en todos los navegadores */
+/* ==========================================================================
+   RESET & CONFIGURACIÓN GENERAL
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +9,6 @@
 }
 
 body {
-    /* Cargamos el fondo.svg desde la carpeta assets */
     background-image: url('assets/fondo.svg');
     background-size: cover;
     background-position: center;
@@ -32,76 +33,30 @@ header {
     display: block;
     margin: 0 auto;
 }
-/* =========================================
-   1. BOTONERA Y BOTONES (ESCRITORIO / PC)
-   ========================================= */
-.botonera {
-    display: grid;
-    grid-template-columns: repeat(11, 1fr); /* PC: 11 columnas exactas */
-    gap: 8px; 
-    justify-content: center; 
-    padding: 0px 20px 20px 20px; 
-    width: 100%;
-    max-width: 1400px; 
-    margin: -15px auto 0 auto; 
-}
 
-.btn-mundial {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px; 
-    width: 100%; 
-    aspect-ratio: 3 / 1; 
-    height: auto; 
-    background-color: #ffffff;
-    border: none;
-    border-radius: 12px; 
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    padding: 0 4px;    
-}
-
-.btn-mundial:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-}
-
-.btn-mundial img {
-    height: 20px; 
-    width: 20px;
-    object-fit: contain; 
-}
-
-.btn-mundial span {
-    font-size: 0.9rem; 
-    font-weight: 800; 
-    color: #0b4a86; 
-}
-
-/* --- VISOR 3D --- */
 main {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 /* --- TEXTO GUÍA (ENTRE BOTONERA Y VISOR) --- */
 .texto-guia-superior {
     text-align: center;
     font-size: 1.3rem;
     font-weight: 600;
-    color: #ffffff; /* Pongo blanco, si tu fondo es blanco cambialo a #0b4a86 o negro */
-    margin: 15px auto 25px auto; /* Le da 15px de aire arriba y 25px de aire abajo */
-    max-width: 800px; /* Evita que el texto se estire de punta a punta en monitores grandes */
+    color: #ffffff; 
+    margin: 15px auto 25px auto; 
+    max-width: 800px; 
     padding: 0 20px;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4); /* Sombrita para que se lea impecable */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4); 
 }
+
 /* --- CONTENEDOR DEL VISOR --- */
 .visor-container {
     width: 100%;
-    max-width: 900px; /* Antes estaba en 600px. Aumentando esto, se hace mucho más ancho en pantallas grandes */
+    max-width: 900px; 
     background: rgba(255, 255, 255, 0.3); 
     border-radius: 20px;
     padding: 20px;
@@ -112,129 +67,455 @@ main {
     justify-content: center;
 }
 
-/* --- TAMAÑO DEL MODELO 3D --- */
-model-viewer {
+/* ==========================================================================
+   1. CONTENEDORES DE LA LÍNEA DE TIEMPO (ESTRUCTURA DE SCROLL HORIZONTAL)
+   ========================================================================= */
+.timeline-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
     width: 100%;
-    height: 550px; /* Le damos buena altura para acompañar el ancho. Si lo querés más alto, subí este número */
-    outline: none; /* Esto evita que aparezca un recuadro negro molesto al hacerle click */
+    max-width: 1000px;
+    margin: -35px auto 5px auto !important; /* Elimina la brecha vacía debajo del logo */
+    padding: 0 50px;
+    box-sizing: border-box;
 }
 
-/* --- FICHA TÉCNICA --- */
+.timeline-container {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: scroll !important; /* Mantiene el desplazamiento lateral */
+    overflow-y: hidden !important;
+    padding: 15px 0 20px 0 !important;
+    background: transparent !important;
+    scrollbar-width: none !important;
+    justify-content: flex-start !important;
+    align-content: flex-start !important;
+}
+
+.timeline-container::-webkit-scrollbar {
+    display: none !important;
+}
+
+.botonera.timeline-track {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    padding: 0 0 15px 0 !important;
+    margin: 0 !important;
+    position: relative !important;
+    width: max-content !important;
+    background: transparent !important;
+    justify-content: flex-start;
+    margin-left: 0 !important;
+    left: 0 !important;
+    border: none !important;
+}
+
+/* ==========================================================================
+   2. DISEÑO DE MUNDIALES (RESET DE BOTONES E ILUMINACIÓN HOVER)
+   ========================================================================== */
+.btn-mundial.timeline-item {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    cursor: pointer !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    width: 85px !important;     
+    min-width: 85px !important; 
+    max-width: 85px !important; 
+    z-index: 2 !important;
+    transition: all 0.2s ease !important;
+    box-sizing: border-box !important;
+}
+
+.btn-mundial.timeline-item[data-year="1930"] {
+    margin-left: 15px !important;
+}
+
+.logo-wrapper {
+    width: 65px !important;
+    height: 65px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    margin-bottom: 5px !important;
+}
+
+.logo-wrapper img {
+    width: auto !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.95)) drop-shadow(0px 0px 2px rgba(255, 255, 255, 0.9)) !important;
+    transition: filter 0.2s ease !important;
+}
+
+.btn-mundial.timeline-item:hover, .timeline-item:hover, .btn-mundial:hover {
+    transform: none !important;
+    transform: translateY(0px) !important; /* Bloquea de raíz el levantamiento en hover */
+}
+.btn-mundial.timeline-item:hover .logo-wrapper img {
+    filter: drop-shadow(0px 0px 14px rgba(255, 255, 255, 1)) drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.95)) brightness(1.1) !important;
+}
+.btn-mundial.timeline-item:hover .timeline-dot {
+    background: #e6b121 !important;
+    border-color: #ffffff !important;
+}
+.btn-mundial.timeline-item:hover .timeline-year {
+    color: #e6b121 !important;
+}
+
+/* ==========================================================================
+   3. SISTEMA DE LÍNEA AUTOCENTRADA POR CONEXIÓN DE PUNTOS
+   ========================================================================== */
+.timeline-dot {
+    width: 10px !important;
+    height: 10px !important;
+    background: #8faec9 !important;
+    border-radius: 50% !important;
+    border: 2px solid #002c53 !important;
+    margin: 0 0 12px 0 !important;
+    z-index: 5 !important;
+    position: relative !important;
+    transition: all 0.2s ease !important;
+}
+
+.timeline-dot::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    right: 8px !important;      
+    width: 39px !important;     
+    height: 4px !important;
+    background: #01427a !important; 
+    z-index: -1 !important;
+}
+
+.timeline-dot::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: 8px !important;       
+    width: 39px !important;     
+    height: 4px !important;
+    background: #01427a !important;
+    z-index: -1 !important;
+}
+
+.btn-mundial.timeline-item:first-child .timeline-dot::before { display: none !important; }
+.btn-mundial.timeline-item:last-child .timeline-dot::after { display: none !important; }
+
+.timeline-year {
+    font-family: "Basic", sans-serif !important;
+    font-weight: bold !important;
+    color: #ffffff !important;
+    font-size: 1.25rem !important;
+    line-height: 1 !important;
+    margin-top: 0 !important;
+    transition: color 0.2s ease !important;
+}
+
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #01427a;
+    color: #fff;
+    border: 1px solid #01427a;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+.nav-arrow:hover { background: #e6b121; color: #002c53; }
+.prev-btn { left: 0; }
+.next-btn { right: 0; }
+
+/* ==========================================================================
+   4. TU BOTÓN FLOTANTE CALIBRADO GENERAL (2 LÍNEAS - EN LA ESQUINA RECTA A 5PX)
+   ========================================================================== */
+.btn-info-flotante {
+    position: absolute !important;
+    top: 5px !important; 
+    right: 5px !important;
+    z-index: 99 !important;
+    background: #002344 !important;
+    border: 2px solid #e6b121 !important;
+    color: #ffffff !important;
+    font-family: "Basic", sans-serif !important;
+    font-size: 1rem !important;
+    font-weight: bold !important;
+    padding: 10px 20px !important;
+    border-radius: 20px !important;
+    cursor: pointer !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5) !important;
+    transition: all 0.2s ease-in-out !important;
+    
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+}
+
+.btn-info-flotante:hover {
+    background: #e6b121 !important;
+    color: #002344 !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 8px 25px rgba(230, 177, 33, 0.4) !important;
+}
+
+.mas-info-tag {
+    color: #e6b121 !important;
+    font-size: 0.8rem !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+.btn-info-flotante:hover .mas-info-tag {
+    color: #002344 !important;
+}
+
+/* ==========================================================================
+   5. MODAL OVERLAY Y RECUADRO INTERNO (FICHA DE MUSEO POPUP DESPLEGABLE)
+   ========================================================================== */
+.modal-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: rgba(0, 12, 24, 0.75) !important;
+    z-index: 1000 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: opacity 0.3s ease !important;
+}
+
+.modal-overlay.open {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
 .ficha-tecnica {
-    width: 100%;
-    max-width: 600px;
-    background: #00385c; /* El color oscuro que elegiste */
-    color: #ffffff; /* Texto general en blanco */
-    padding: 25px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* Sombra un poquito más oscura para que despegue del fondo */
-    text-align: center;
+    background: #002344 !important; 
+    border: 2px solid rgba(230, 177, 33, 0.5) !important;
+    border-radius: 16px !important;
+    padding: 35px 30px 30px 30px !important;
+    width: 90% !important;
+    max-width: 650px !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6) !important;
+    position: relative !important;
+    text-align: center !important;
+    transform: scale(0.9) !important;
+    transition: transform 0.3s ease !important;
 }
 
-.ficha-tecnica h2 {
-    margin-bottom: 15px;
-    font-size: 1.8rem;
-    color: #ffffff; /* Título principal en blanco puro */
+.modal-overlay.open .ficha-tecnica {
+    transform: scale(1) !important;
 }
 
-.ficha-tecnica p {
-    margin-bottom: 10px;
-    font-size: 1.1rem;
-    color: #f0f0f0; /* Un blanco apenitas más suave para los textos normales */
+.modal-close {
+    position: absolute !important;
+    top: 10px !important;
+    right: 15px !important;
+    background: transparent !important;
+    border: none !important;
+    color: #b0cbe3 !important;
+    font-size: 2rem !important;
+    cursor: pointer !important;
+    line-height: 1 !important;
+    transition: color 0.2s ease !important;
 }
+.modal-close:hover { color: #e6b121 !important; }
 
-.ficha-tecnica .detalles {
-    margin-top: 15px;
-    font-style: italic;
-    color: #cccccc; /* Un gris claro para diferenciar los detalles textiles */
-    line-height: 1.5;
-}
-/* =========================================
-   2. ADAPTACIÓN PARA CELULARES
-   ========================================= */
-@media (max-width: 768px) {
-    .botonera {
-        grid-template-columns: repeat(5, 1fr); /* CELULAR: 5 columnas clavadas */
-        gap: 4px; 
-        padding: 5px;
-        margin: 0 auto; /* Resetea el margen negativo */
-    }
+#ficha-mundial { font-family: "Basic", sans-serif !important; font-size: 2rem !important; color: #ffffff !important; margin: 0 0 20px 0 !important; font-weight: bold !important; letter-spacing: 1px !important; }
+#contenedor-datos { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 15px !important; padding: 20px 0 !important; margin-bottom: 20px !important; border-top: 1px solid rgba(255, 255, 255, 0.1) !important; border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important; }
+#contenedor-datos p { font-family: "Basic", sans-serif !important; font-size: 1rem !important; color: #b0cbe3 !important; margin: 0 !important; padding: 12px 15px !important; background: rgba(1, 66, 122, 0.2) !important; border-radius: 8px !important; text-align: left !important; box-sizing: border-box !important; }
+#contenedor-datos p strong { color: #e6b121 !important; font-weight: bold !important; display: block !important; font-size: 0.85rem !important; text-transform: uppercase !important; letter-spacing: 0.5px !important; margin-bottom: 4px !important; }
 
-    .btn-mundial {
-        border-radius: 8px; 
-        padding: 0 4px;
-        gap: 5px;                
-    }
+#ficha-detalles { font-family: sans-serif !important; font-size: 1.05rem !important; font-style: italic !important; color: #ffffff !important; line-height: 1.6 !important; margin: 10px 0 0 0 !important; padding: 0 10px !important; text-align: center !important; }
 
-    .btn-mundial img {
-        height: 14px; 
-        width: 14px;
-    }
+/* COMPRESIÓN DE TEXTOS INFERIORES GENERALES */
+model-viewer, .card-visor { margin-bottom: 0px !important; padding-bottom: 0px !important; }
+.creditos-titulo, footer h3, footer p { margin-top: 4px !important; margin-bottom: 4px !important; }
+.politicas-links, footer div { margin-top: 4px !important; margin-bottom: 4px !important; padding-bottom: 8px !important; }
 
-    .btn-mundial span {
-        font-size: 0.55rem; 
-        margin-left: 0; 
-    }
-
-    /* Textos guía en celular */
-    .texto-guia-superior {
-        font-size: 0.95rem; 
-        margin: 10px auto 15px auto; 
-    }
-
-    .texto-guia-inferior {
-        font-size: 0.85rem;
-        margin-top: 15px;
-    }
-
-    /* Visor 3D en celular */
-    .visor-container {
-        padding: 10px; 
-        margin-bottom: 15px;
-        max-width: 95%; 
-    }
-
-    model-viewer {
-        width: 100%;
-        height: 350px !important; 
-        max-height: 50vh; 
-    }
-}
 /* --- PIE DE PÁGINA (FOOTER) --- */
 .pie-pagina {
     text-align: center;
     padding: 40px 20px;
     margin-top: 40px;
-    color: #ffffff; /* Pongo el texto en blanco, cambialo si tu fondo es claro */
+    color: #ffffff; 
 }
 
 .pie-pagina p {
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 20px;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* Sombra para que se lea perfecto sobre cualquier fondo */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); 
 }
 
 .redes-sociales {
     display: flex;
     justify-content: center;
-    gap: 25px; /* Espacio entre los dos botones */
+    gap: 25px; 
 }
 
 .redes-sociales a {
     text-decoration: none;
 }
 
-/* Tamaño y efecto de los botones de redes */
 .redes-sociales img {
-    width: 120px; /* Tamaño del botón. Si te parecen muy grandes, bajalo a 40px o 50px */
+    width: 120px; 
     height: auto;
-    border-radius: 15px; /* Por si las imágenes son cuadradas, les suaviza los bordes */
+    border-radius: 15px; 
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .redes-sociales img:hover {
-    transform: translateY(-5px) scale(1.05); /* Efecto de que "salta" hacia arriba al pasar el mouse */
+    transform: translateY(-5px) scale(1.05); 
     box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+/* ==========================================================================
+A) EXCLUSIVO PARA COMPUTADORAS (PC / MONITORES GRANDES)
+========================================================================== */
+@media screen and (min-width: 481px) {
+    model-viewer,
+    .card-visor {
+        width: 100% !important;
+        max-width: 850px !important;
+        height: 58vh !important; /* Altura imponente estricta para PC */
+        min-height: 420px !important;
+        max-height: 560px !important;
+        margin: 0 auto !important;
+    }
+    .timeline-container {
+        padding: 10px 0 15px 0 !important;
+    }
+    .timeline-wrapper + p,
+    .timeline-container + p,
+    h3, p {
+        margin-top: 2px !important;
+        margin-bottom: 6px !important;
+    }
+}
+
+/* ==========================================================================
+B) EXCLUSIVO PARA CELULARES (MOBILE - COMPRESIÓN ATÓMICA AL 42VH)
+========================================================================== */
+@media screen and (max-width: 480px) {
+    /* Fuerza al visor a compactarse para que suban las redes y los créditos */
+    model-viewer,
+    .card-visor {
+        height: 42vh !important; /* Altura móvil compactada perfecta */
+        min-height: 290px !important;
+        max-height: 360px !important;
+        width: 95% !important;
+        margin: 0 auto !important;
+    }
+    /* Reduce los espacios en blanco debajo de la camiseta */
+    .timeline-wrapper + p,
+    .timeline-container + p,
+    h3, p {
+        margin-bottom: 4px !important;
+    }
+    .creditos-titulo, footer h3, footer p {
+        margin-top: 2px !important;
+        margin-bottom: 2px !important;
+    }
+    /* Achica la botonera horizontal al 75% */
+    .btn-mundial.timeline-item {
+        width: 65px !important;
+        min-width: 65px !important;
+        max-width: 65px !important;
+    }
+    .logo-wrapper {
+        width: 48px !important;
+        height: 48px !important;
+        margin-bottom: 3px !important;
+    }
+    .timeline-year {
+        font-size: 0.85rem !important;
+    }
+    .timeline-container {
+        padding: 5px 0 15px 0 !important;
+    }
+    .timeline-wrapper {
+        padding: 0 35px !important;
+        margin-top: -25px !important;
+    }
+    .nav-arrow {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 1rem !important;
+    }
+    .timeline-dot::before {
+        width: 29px !important;
+        right: 8px !important;
+    }
+    .timeline-dot::after {
+        width: 29px !important;
+        left: 8px !important;
+    }
+    /* Botón flotante compacto en la esquina del celular */
+    .btn-info-flotante {
+        top: 5px !important;
+        right: 5px !important;
+        bottom: auto !important;
+        height: auto !important;
+        max-height: 55px !important;
+        width: auto !important;
+        min-width: 110px !important;
+        padding: 6px 12px !important;
+        font-size: 0.85rem !important;
+        border-radius: 12px !important;
+    }
+    .mas-info-tag {
+        font-size: 0.7rem !important;
+        line-height: 1 !important;
+    }
+    /* Tarjetas del popup modal en celular */
+    .ficha-tecnica {
+        padding: 25px 20px 20px 20px !important;
+        margin: 10px !important;
+    }
+    #ficha-mundial {
+        font-size: 1.6rem !important;
+    }
+    #contenedor-datos {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+        padding: 15px 0 !important;
+    }
+    #contenedor-datos p {
+        font-size: 0.95rem !important;
+        padding: 8px 12px !important;
+    }
+    #ficha-detalles {
+        font-size: 0.95rem !important;
+        line-height: 1.5 !important;
+    }
 }

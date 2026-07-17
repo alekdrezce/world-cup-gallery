@@ -238,10 +238,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     btnFlotante.classList.remove("oculto-inicio");
                 }
 
-                // A. Cambiar modelo 3D
+                // A. Cambiar modelo 3D (usando tu excelente lógica original)
                 if (visor3D) {
                     const nombreArchivo = `${data.campeon === "España" ? "España" : data.campeon}${year}.glb`;
                     visor3D.src = `assets/camisetas/${nombreArchivo}`;
+                    
+                    // RESETEAR LA CÁMARA PARA QUE LAS CAMISETAS NO SE VEAN LEJOS
+                    visor3D.cameraOrbit = "auto auto auto";
+                    
                     if (typeof visor3D.dismissPoster === "function") visor3D.dismissPoster();
                 }
 

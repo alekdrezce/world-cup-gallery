@@ -177,130 +177,88 @@ const mundiales = {
         detalles: "Camiseta de tejido ultraligero termo-regulado, cuello redondo, el Sol de Mayo estampado en la nuca y el escudo coronado por detalles dorados texturizados." 
     }
 };
-
 // Esperamos a que todo el HTML cargue antes de ejecutar el script
 document.addEventListener("DOMContentLoaded", () => {
-    // Capturamos los elementos del DOM
-    const botones = document.querySelectorAll(".btn-mundial");
-    const visor = document.getElementById("visor-3d");
-    const fichaMundial = document.getElementById("ficha-mundial");
     
-    // Capturamos los nuevos elementos en el orden solicitado
+    // 1. CAPTURAMOS TODOS LOS ELEMENTOS DEL DOM
+    // Carrusel y visor 3D
+    const container = document.getElementById("timelineContainer");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const track = document.querySelector(".timeline-track");
+    const visor3D = document.querySelector("model-viewer"); // Apuntamos directo al componente 3D
+
+    // Componentes del Botón Flotante y el Modal (Popup)
+    const btnFlotante = document.getElementById("btnFlotanteInfo");
+    const txtDinamicoBtn = document.getElementById("btn-texto-dinamico");
+    const modal = document.getElementById("modalFicha");
+    const btnCerrar = document.getElementById("btnCerrarModal");
+
+    // Elementos de texto adentro del Modal (Ficha técnica)
+    const fichaMundial = document.getElementById("ficha-mundial");
     const fichaCampeon = document.getElementById("ficha-campeon");
     const fichaFecha = document.getElementById("ficha-fecha");
     const fichaResultado = document.getElementById("ficha-resultado");
     const fichaMarca = document.getElementById("ficha-marca");
     const fichaDetalles = document.getElementById("ficha-detalles");
 
-    // Le agregamos el evento click a cada botón
-    botones.forEach(boton => {
-        boton.addEventListener("click", () => {
-            const year = boton.getAttribute("data-year");
-            const data = mundiales[year];
-
-            if (data) {
-                // Filtro para el nombre de España en el archivo 3D (para que busque Espaa2010.glb en vez de España2010.glb)
-                const nombreArchivo = `${data.campeon === "España" ? "España" : data.campeon}${year}.glb`;
-                visor.src = `assets/camisetas/${nombreArchivo}`;
-
-                // Actualizamos el encabezado con la sede y el año
-                fichaMundial.textContent = `${data.sede} ${year}`;
-                
-                // Inyectamos las etiquetas en negrita junto con los datos usando innerHTML
-                fichaCampeon.innerHTML = `<strong>Campeón:</strong> ${data.campeon}`;
-                fichaFecha.innerHTML = `<strong>Fecha:</strong> ${data.fecha}`;
-                fichaResultado.innerHTML = `<strong>Resultado:</strong> ${data.resultado}`;
-                fichaMarca.innerHTML = `<strong>Marca:</strong> ${data.marca}`;
-                
-                // El detalle queda igual
-                fichaDetalles.textContent = data.detalles;
-            }
-        });
-    });
-});
-document.addEventListener("DOMContentLoaded", function () {
-    // 1. CAPTURA DE COMPONENTES DEL DOM
-    const container = document.getElementById("timelineContainer");
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
-    const track = document.querySelector(".timeline-track");
-    const visor3D = document.querySelector("model-viewer");
-    
-    // Componentes del Popup y Botón Flotante
-    const btnFlotante = document.getElementById("btnFlotanteInfo");
-    const txtDinamicoBtn = document.getElementById("btn-texto-dinamico");
-    const modal = document.getElementById("modalFicha");
-    const btnCerrar = document.getElementById("btnCerrarModal");
-
-    // Cálculo responsivo de distancia de scroll (PC: 255px / Móvil: 195px)
+    // 2. LÓGICA DE DESPLAZAMIENTO (FLECHAS DEL CARRUSEL)
     const esCelular = window.innerWidth <= 480;
     const scrollStep = esCelular ? 195 : 255; 
 
-    // Diccionario de archivos 3D reales de tu servidor (assets/camisetas/)
-    const nombresCamisetas = {
-        "1930": "Uruguay1930", "1934": "Italia1934", "1938": "Italia1938", "1950": "Uruguay1950",
-        "1954": "Alemania1954", "1958": "Brasil1958", "1962": "Brasil1962", "1966": "Inglaterra1966",
-        "1970": "Brasil1970", "1974": "Alemania1974", "1978": "Argentina1978", "1982": "Italia1982",
-        "1986": "Alemania1986", "1990": "Alemania1990", "1994": "Brasil1994", "1998": "Francia1998",
-        "2002": "Brasil2002", "2006": "Italia2006", "2010": "Espana2010", "2014": "Alemania2014",
-        "2018": "Francia2018", "2022": "Argentina2022"
-    };
-
-    // Diccionario rápido para el Botón Flotante (Año + Sede)
-    const nombresLocaciones = {
-        "1930": "Uruguay 1930", "1934": "Italia 1934", "1938": "Francia 1938", "1950": "Brasil 1950",
-        "1954": "Suiza 1954", "1958": "Suecia 1958", "1962": "Chile 1962", "1966": "Inglaterra 1966",
-        "1970": "México 1970", "1974": "Alemania 1974", "1978": "Argentina 1978", "1982": "España 1982",
-        "1986": "México 1986", "1990": "Italia 1990", "1994": "EEUU 1994", "1998": "Francia 1998",
-        "2002": "Corea/Japón 2002", "2006": "Alemania 2006", "2010": "Sudáfrica 2010", "2014": "Brasil 2014",
-        "2018": "Rusia 2018", "2022": "Catar 2022"
-    };
-
-    // 2. DISPARADORES DE DESPLAZAMIENTO (FLECHAS)
     if (container && prevBtn && nextBtn) {
-        prevBtn.onclick = function(e) { e.preventDefault(); container.scrollLeft -= scrollStep; };
-        nextBtn.onclick = function(e) { e.preventDefault(); container.scrollLeft += scrollStep; };
+        prevBtn.onclick = (e) => { e.preventDefault(); container.scrollLeft -= scrollStep; };
+        nextBtn.onclick = (e) => { e.preventDefault(); container.scrollLeft += scrollStep; };
     }
 
     // 3. APERTURA Y CIERRE DEL POPUP MODAL
     if (btnFlotante && modal) {
-        btnFlotante.onclick = function(e) { e.preventDefault(); modal.classList.add("open"); };
+        btnFlotante.onclick = (e) => { e.preventDefault(); modal.classList.add("open"); };
     }
     if (modal && btnCerrar) {
-        btnCerrar.onclick = function(e) { e.preventDefault(); modal.classList.remove("open"); };
-        modal.onclick = function(e) { if (e.target === modal) modal.classList.remove("open"); };
+        btnCerrar.onclick = (e) => { e.preventDefault(); modal.classList.remove("open"); };
+        // Esto cierra el modal si hacen clic afuera del recuadro
+        modal.onclick = (e) => { if (e.target === modal) modal.classList.remove("open"); };
     }
 
-    // 4. EL PUENTE ESPEJO SINCRONIZADOR DE DATOS PRIVADOS
+    // 4. EL CEREBRO PRINCIPAL: QUÉ PASA AL TOCAR UN MUNDIAL
     if (track) {
-        track.addEventListener("click", function(e) {
+        track.addEventListener("click", (e) => {
+            // Buscamos si lo que se clickeó es un botón de mundial
             const botonMundial = e.target.closest(".btn-mundial");
             if (!botonMundial) return;
 
-            const anio = botonMundial.getAttribute("data-year");
-            
-            // A. Cambiar modelo 3D
-            if (visor3D) {
-                const nombreArchivo = nombresCamisetas[anio];
-                if (nombreArchivo) {
-                    visor3D.src = `assets/camisetas/${nombreArchivo}.glb`;
+            // Sacamos el año del botón tocado y buscamos su data en tu base
+            const year = botonMundial.getAttribute("data-year");
+            const data = mundiales[year];
+
+            if (data) {
+                // A. Cambiar modelo 3D (usando tu excelente lógica original)
+                if (visor3D) {
+                    const nombreArchivo = `${data.campeon === "España" ? "España" : data.campeon}${year}.glb`;
+                    visor3D.src = `assets/camisetas/${nombreArchivo}`;
                     if (typeof visor3D.dismissPoster === "function") visor3D.dismissPoster();
                 }
-            }
 
-            // B. Cambiar etiqueta del botón flotante
-            if (txtDinamicoBtn) {
-                txtDinamicoBtn.textContent = nombresLocaciones[anio] || `Mundial ${anio}`;
-            }
+                // B. Cambiar el nombre en el botón flotante
+                if (txtDinamicoBtn) {
+                    txtDinamicoBtn.textContent = `${data.sede} ${year}`;
+                }
 
-            // C. Active State de opacidad en la botonera
-            document.querySelectorAll(".btn-mundial").forEach(b => b.style.opacity = "0.4");
-            botonMundial.style.opacity = "1";
-            
-            // D. Delay milimétrico para clonar los textos mutados por tu lógica vieja privada
-            setTimeout(() => {
-                console.log("Sincronización espejo completada con éxito.");
-            }, 50);
+                // C. Inyectar todos los datos en el Modal
+                if (fichaMundial) fichaMundial.textContent = `${data.sede} ${year}`;
+                
+                if (fichaCampeon) fichaCampeon.innerHTML = `<strong>Campeón:</strong> ${data.campeon}`;
+                if (fichaFecha) fichaFecha.innerHTML = `<strong>Fecha:</strong> ${data.fecha}`;
+                if (fichaResultado) fichaResultado.innerHTML = `<strong>Resultado:</strong> ${data.resultado}`;
+                if (fichaMarca) fichaMarca.innerHTML = `<strong>Marca:</strong> ${data.marca}`;
+                
+                if (fichaDetalles) fichaDetalles.textContent = data.detalles;
+
+                // D. Active State: Apagar los otros botones y prender el clickeado
+                document.querySelectorAll(".btn-mundial").forEach(b => b.style.opacity = "0.4");
+                botonMundial.style.opacity = "1";
+            }
         });
     }
 });

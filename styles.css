@@ -65,8 +65,12 @@ main {
     backdrop-filter: blur(10px); 
     display: flex;
     justify-content: center;
+    overflow: hidden !important;
 }
-
+model-viewer {
+    outline: none !important; /* Elimina recuadros azules de selección al hacer clic */
+    border-radius: 15px !important; /* Suaviza las esquinas internas del visor */
+}
 /* ==========================================================================
    1. CONTENEDORES DE LA LÍNEA DE TIEMPO (ESTRUCTURA DE SCROLL HORIZONTAL)
    ========================================================================= */

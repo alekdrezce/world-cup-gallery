@@ -185,28 +185,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- CONTENEDOR DEL VISOR 3D -->
-    <!-- (Le agregamos position: relative; para que el botón flotante no se escape de esta caja) -->
-    <div class="visor-container card-visor" style="position: relative;">
-        
-        <!-- ACÁ VA TU BOTÓN FLOTANTE -->
-        <button class="btn-info-flotante" id="btnFlotanteInfo">
-            <div id="btn-texto-dinamico">Catar 2022</div>
-            <div class="mas-info-tag">+ INFO</div>
-        </button>
+<div class="visor-container card-visor" style="position: relative;">
+    
+    <!-- BOTÓN FLOTANTE (Oculto de pique hasta que elijan un mundial) -->
+    <button class="btn-info-flotante" id="btnFlotanteInfo" style="display: none;">
+        <div id="btn-texto-dinamico"></div>
+        <div class="mas-info-tag">+ INFO</div>
+    </button>
 
-        <!-- EL VISOR 3D -->
-        <model-viewer 
-            id="visorCamiseta"
-            src="assets/camisetas/Uruguay1930.glb" 
-            camera-controls 
-            auto-rotate 
-            rotation-per-second="30deg"
-            shadow-intensity="1" 
-            environment-image="neutral" 
-            exposure="1" 
-            alt="Modelo 3D de camiseta histórica del Mundial">
-        </model-viewer>
-    </div>
+    <!-- EL VISOR 3D (Arranca con la copa) -->
+    <model-viewer 
+        id="visorCamiseta"
+        src="assets/camisetas/copa.glb" 
+        camera-controls 
+        auto-rotate 
+        rotation-per-second="30deg"
+        shadow-intensity="1" 
+        environment-image="neutral" 
+        exposure="1" 
+        alt="Modelo 3D de camiseta histórica del Mundial">
+    </model-viewer>
+</div>
 
     <!-- EL POPUP / MODAL (Este es el recuadro negro que aparece al hacer click en + INFO) -->
 <div class="modal-overlay" id="modalFicha">

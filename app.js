@@ -221,7 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.onclick = (e) => { if (e.target === modal) modal.classList.remove("open"); };
     }
 
-    // 4. EL CEREBRO PRINCIPAL: QUÉ PASA AL TOCAR UN MUNDIAL
+   // 4. EL CEREBRO PRINCIPAL: QUÉ PASA AL TOCAR UN MUNDIAL
     if (track) {
         track.addEventListener("click", (e) => {
             // Buscamos si lo que se clickeó es un botón de mundial
@@ -233,7 +233,12 @@ document.addEventListener("DOMContentLoaded", () => {
             const data = mundiales[year];
 
             if (data) {
-                // A. Cambiar modelo 3D (usando tu excelente lógica original)
+                // Hacemos aparecer el botón flotante ahora que hay un mundial seleccionado
+                if (btnFlotante) {
+                    btnFlotante.style.display = "flex";
+                }
+
+                // A. Cambiar modelo 3D
                 if (visor3D) {
                     const nombreArchivo = `${data.campeon === "España" ? "España" : data.campeon}${year}.glb`;
                     visor3D.src = `assets/camisetas/${nombreArchivo}`;

@@ -233,9 +233,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const data = mundiales[year];
 
             if (data) {
-                // Hacemos aparecer el botón flotante ahora que hay un mundial seleccionado
+                // Le quitamos la capa de invisibilidad al botón flotante
                 if (btnFlotante) {
-                    btnFlotante.style.display = "flex";
+                    btnFlotante.classList.remove("oculto-inicio");
                 }
 
                 // A. Cambiar modelo 3D

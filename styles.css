@@ -523,3 +523,7 @@ B) EXCLUSIVO PARA CELULARES (MOBILE - COMPRESIÓN ATÓMICA AL 42VH)
         line-height: 1.5 !important;
     }
 }
+/* Clase para ocultar el botón al inicio */
+.oculto-inicio {
+    display: none !important;
+}

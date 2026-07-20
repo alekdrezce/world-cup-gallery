@@ -175,6 +175,14 @@ const mundiales = {
         resultado: "Argentina 3 - 3 Francia (4-2 pen.)",
         marca: "Adidas", 
         detalles: "Camiseta de tejido ultraligero termo-regulado, cuello redondo, el Sol de Mayo estampado en la nuca y el escudo coronado por detalles dorados texturizados." 
+    },
+    "2026": { 
+        sede: "EE.UU. / México / Canadá",
+        campeon: "España",
+        fecha: "19 de julio de 2026",
+        resultado: "España 1 - 0 Argentina (Alargue)",
+        marca: "Adidas", 
+        detalles: "Camiseta titular de tejido ultraligero roja con franjas verticales sutiles, mangas azul marino y detalles en amarillo." 
     }
 };
 // Esperamos a que todo el HTML cargue antes de ejecutar el script

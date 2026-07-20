@@ -59,7 +59,7 @@ main {
     max-width: 900px; 
     background: rgba(255, 255, 255, 0.3); 
     border-radius: 20px;
-    padding: 20px;
+    padding: 0px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     margin-bottom: 25px;
     backdrop-filter: blur(10px); 
@@ -369,7 +369,7 @@ model-viewer, .card-visor { margin-bottom: 0px !important; padding-bottom: 0px !
 .pie-pagina {
     text-align: center;
     padding: 40px 20px;
-    margin-top: 40px;
+    margin-top: 0px;
     color: #ffffff; 
 }
 

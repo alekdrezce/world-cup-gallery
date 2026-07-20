@@ -177,10 +177,10 @@ const mundiales = {
         detalles: "Camiseta de tejido ultraligero termo-regulado, cuello redondo, el Sol de Mayo estampado en la nuca y el escudo coronado por detalles dorados texturizados." 
     },
     "2026": { 
-        sede: "EE.UU. / México / Canadá",
+        sede: "Estados Unidos / México / Canadá",
         campeon: "España",
         fecha: "19 de julio de 2026",
-        resultado: "España 1 - 0 Argentina (Alargue)",
+        resultado: "España 1 - 0 Argentina",
         marca: "Adidas", 
         detalles: "Camiseta titular de tejido ultraligero roja con franjas verticales sutiles, mangas azul marino y detalles en amarillo." 
     }
